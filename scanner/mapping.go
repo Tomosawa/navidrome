@@ -128,7 +128,7 @@ func (s MediaFileMapper) trackID(md metadata.Tags) string {
 }
 
 func (s MediaFileMapper) albumID(md metadata.Tags, releaseDate string) string {
-	albumPath := strings.ToLower(fmt.Sprintf("%s\\%s", s.mapAlbumArtistName(md), s.mapAlbumName(md)))
+	albumPath := s.mapAlbumName(md)
 	if !conf.Server.Scanner.GroupAlbumReleases {
 		if len(releaseDate) != 0 {
 			albumPath = fmt.Sprintf("%s\\%s", albumPath, releaseDate)
